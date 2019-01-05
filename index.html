@@ -1,12 +1,221 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Project 1</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1>Project 1: The Game</h1>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Project 1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+  </script>
+
+  <script src="js/app.js" charset="utf-8"></script>
+</head>
+<body>
+  <h1>Ultimate Tic-Tac-Toe
+  </h1>
+  <!-- GIVING USER INSTRUCTION HOW TO PLAY  -->
+  <p class="rules">Be sure to read the rules below!</p>
+  <div class="btn-container">
+    <span>New Game As: </span>
+    <button>X</button>
+    <button>O</button>
+  </div>
+  <!-- CREATING THE BIG GRID FOR FINAL GAME -->
+  <table class="big-grid">
+
+    <!-- ASSIGN ALL CLASSES FOR SINGLE GRID OUT 9 TOP, MID, BOTTOM -->
+    <!-- SETTING UP TOP LINE OF 3*9 GRID -->
+    <tr class="top">
+      <td class="1">
+        <table class="little-grid col-1 row-1">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="2">
+        <table class="little-grid col-2 row-1">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="3">
+        <table class="little-grid col-3 row-1">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- SETTING UP MIDDLE LINE OF 3*9 GRID -->
+    <tr class="middle">
+      <td class="1">
+        <table class="little-grid col-1 row-2">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="2">
+        <table class="little-grid col-2 row-2">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="3">
+        <table class="little-grid col-3 row-2">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- SETTING UP BOTTOM LINE OF 3*9 GRID -->
+    <tr class="bottom">
+      <td class="1">
+        <table class="little-grid col-1 row-3">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="2">
+        <table class="little-grid col-2 row-3">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="3">
+        <table class="little-grid col-3 row-3">
+          <tr class="1">
+            <td class="1"></td>
+            <td class="2"></td>
+            <td class="3"></td>
+          </tr>
+          <tr class="2">
+            <td class="4"></td>
+            <td class="5"></td>
+            <td class="6"></td>
+          </tr>
+          <tr class="3">
+            <td class="7"></td>
+            <td class="8"></td>
+            <td class="9"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <footer>
+    <h2>Rules:</h2>
+    <ol>
+      <li>The first player can choose any of the smaller boards to start on.</li>
+      <li>Whichever cell they choose will determine the board that the opponent will play on.</li>
+      <li>If the board is completed, the opponent can choose any board to play on.</li>
+    </ol>
+    <aside><strong>The aim is to win the larger Tic Tac Toe game.</strong></aside>
+  </footer>
+
+</body>
 </html>

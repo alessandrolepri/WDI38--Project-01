@@ -1,4 +1,32 @@
 h1 {
-  color: peachpuff; }
+  text-align: center;
+}
+
+p.rules {
+  text-align: center;
+}
+
+div.btn-container {
+  text-align: center;
+}
+
+.little-grid td {
+    border: 1px black solid;
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+.big-grid {
+    border: 1px transparent solid;
+    margin: 0 auto 20px;
+    width: 600px;
+    height: 600px;
+}
+
+.little-grid {
+    border: 1px transpare solid;
+    width: 100%;
+    height: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */
