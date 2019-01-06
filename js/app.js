@@ -37,13 +37,31 @@ $(document).ready(function() {
 
   score = smallgrid.find('score').filter('.' + colour)
 
-// declaring how is the winner
+// declaring how is the winner on small grid
 if(vertical(score) || horizontal(score) || diagonal(score)) {
 smallgrid.addClass(colour)
 smallgrid.find('td').css('backgroundColor', 'blue')
 } else {
   smallgrid.find('td').css('backgroundColor', 'red')
 }
+
+score = $('.smallgrid').filter('.' + colour)
+
+if(vertical(score) || horizontal(score) || diagonal(score)) {
+  win();
+} else {
+  if($('td').not('.filled').legth === 0)
+  }
+}
+}
+
+function winner () {
+  const left = $('.big-grid').offset().left
+  const middle = $('.big-grid').position().middle
+  const right = $('.#turn').offset().right
+}
+
+
 
 
 
