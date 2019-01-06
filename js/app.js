@@ -28,4 +28,36 @@ $(document).ready(function() {
     $(".smallgrid" + played).addClass('play');
   }
 
+
+// prevent to play again in the same grid
+  let div = $('<div>').addClass('score').addClass(colour).addClass('col-' + smallcolumn).addClass('row-' + smallrow)
+  $(this).html(score);
+  $(this).addClass('filled')
+  $(this).unbind('click')
+
+  score = smallgrid.find('score').filter('.' + colour)
+
+// declaring how is the winner
+if(vertical(score)) || horizontal(score) || diagonal(score)) {
+smallgrid.addClass(colour)
+smallgrid.find('td').css('backgroundColor', 'blue')
+} else {
+  smallgrid.find('td').css('backgroundColor', 'red')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
