@@ -64,24 +64,22 @@
     });
   });
 
-
+function winner() {
+  let right = $('#turn').offset().top;
+  let top = $('.big').position().top;
+  let left = $('.big').offset().left;
 
       $('#turn').text('');
 
-      function winner () {
-        const left = $('.big').offset().left
-        const middle = $('.big').position().middle
-        const right = $('.#turn').offset().right
-      });
-
-
       $('#turn').css ({
-        "position": "absolute",
-        "left": "left" + "px",
-        "right": "right" + "px"
-        newGame()
+        position: "absolute",
+        left: left + "px",
+        top: right + "px"
       })
-    };
+
+      function newGame() {
+        $('#newGame').css('display', 'block').hide().fadeIn(200);
+      }
 
     function vertical(markers) {
       return (($(markers).filter('.row-1').length === 3)) || ($(markers).filter('.row-2').length === 3) || (($(markers).filter('.row-3').length === 3))
