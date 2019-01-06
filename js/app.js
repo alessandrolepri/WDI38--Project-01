@@ -38,7 +38,7 @@ $(document).ready(function() {
   score = smallgrid.find('score').filter('.' + colour)
 
 // declaring how is the winner
-if(vertical(score)) || horizontal(score) || diagonal(score)) {
+if(vertical(score) || horizontal(score) || diagonal(score)) {
 smallgrid.addClass(colour)
 smallgrid.find('td').css('backgroundColor', 'blue')
 } else {
