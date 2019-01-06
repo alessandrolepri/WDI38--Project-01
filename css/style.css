@@ -21,7 +21,6 @@ div.btn-container {
 .little-grid td {
     border: 1px black solid;
     background-color: #F5F5F5;
-    cursor: pointer;
 }
 
 .big-grid {
@@ -73,7 +72,14 @@ padding: 20px;
 text-align: center;
 background-color: orange;
 border: 1px solid black;
-cursor: pointer;
 }
+
+div.score {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+
 
 /*# sourceMappingURL=style.css.map */

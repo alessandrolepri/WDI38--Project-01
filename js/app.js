@@ -49,8 +49,13 @@ score = $('.smallgrid').filter('.' + colour)
 
 if(vertical(score) || horizontal(score) || diagonal(score)) {
   win();
-} else {
-  if($('td').not('.filled').legth === 0)
+} else if {
+  ($('td').not('.filled').legth === 0)
+    newGame();
+  } else {
+    $('#turn').removeClass(colour).addClass((colour === 'red') ? 'blue' : 'red');
+    $('turn').html((colour === 'red') ? 'blue' : 'red')
+  }
   }
 }
 }
