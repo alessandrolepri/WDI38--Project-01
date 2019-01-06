@@ -11,10 +11,11 @@ div.btn-container {
 }
 
 #Choice {
-  position: absolute;
+  position:fixed;
   top: 180px;
   border: 1px solid  black;
   background-color: yellow;
+  text-align: center;
 }
 
 .little-grid td {
@@ -30,7 +31,7 @@ div.btn-container {
     height: 600px;
 }
 
-.little-grid, .big-grid {
+.little-grid.live, .big-grid.live {
   border: 1px yellow solid;
 }
 
@@ -48,13 +49,29 @@ div.btn-container {
   font-size: 40px;
 }
 
+.blue {
+  background-color: blue;
+}
+
+td.blue {
+  background-color: dodgerblue;
+}
+
+td.red {
+  background-color: purple;
+}
+
+.red {
+  background-color: red;
+}
+
 #newGame {
 width: 300px;
 margin: 0 auto;
 font-size: 40px;
 padding: 20px;
 text-align: center;
-background-color: red;
+background-color: orange;
 border: 1px solid black;
 cursor: pointer;
 }
