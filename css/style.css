@@ -10,6 +10,13 @@ div.btn-container {
   text-align: center;
 }
 
+#Choice {
+  position: absolute;
+  top: 180px;
+  border: 1px solid  black;
+  background-color: yellow;
+}
+
 .little-grid td {
     border: 1px black solid;
     background-color: #F5F5F5;
@@ -23,7 +30,7 @@ div.btn-container {
     height: 600px;
 }
 
-.little-grid.live, .big-grid.live {
+.little-grid, .big-grid {
   border: 1px yellow solid;
 }
 
