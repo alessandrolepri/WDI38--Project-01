@@ -10,7 +10,7 @@
         return;
       }
       // assign choice blue or red
-      let colour = $("#turn").hasClass("red") ? "red" : "blue";
+      let colour = $('#turn').hasClass('red') ? 'red' : 'blue'
 
       // declaring objects
       little_table  =    $(this).closest('.little-grid');
@@ -18,7 +18,7 @@
       little_row    =    $(this).closest('tr').attr('class');
 
       // giving value of single play
-      little_pos = '.col-' + litte_col + '.row-' + little_row;
+      little_pos = '.col-' + little_col + '.row-' + little_row;
 
       // decide player-next move on small grid
       $(".live").removeClass('live');
@@ -29,12 +29,12 @@
       }
 
       // prevent to play again in the same grid
-      let div = $('<div>').addClass('marker').addClass(colour).addClass('col-' + little_col).addClass('row-' + little_row)
+      let div = $('<div>').addClass('marker').addClass(colour).addClass('col-' + little_col).addClass('row-' + little_row);
       $(this).html(div);
       $(this).addClass('filled');
       $(this).unbind('click');
 
-      markers = little_table.find('.marker').filter('.' + colour)
+      markers = little_table.find('.marker').filter('.' + colour);
 
       // declaring who is the winner on small grid
       if(vertical(markers) || horizontal(markers) || diagonal(markers)) {
@@ -47,7 +47,7 @@
       }
 
       // declaring same if for big-grid
-      markers = $('.little_table').filter('.' + colour)
+      markers = $('.little_table').filter('.' + colour);
 
       if(vertical(markers) || horizontal(markers) || diagonal(markers)) {
         win();
@@ -72,34 +72,36 @@
     $('#turn').text('');
 
     $('#turn').css ({
-      position: "absolute",
-      left: left + "px",
-      top: right + "px"
-    })
+      position: 'absolute',
+      left: left + 'px',
+      top: right + 'px'
+    });
+  }
 
-    function newGame() {
-      $('#newGame').css('display', 'block').hide().fadeIn(200);
-    }
+  function newGame() {
+    $('#newGame').css('display', 'block').hide().fadeIn(200);
+  }
 
-    function horizontal(markers) {
-      return (
-        $(markers).filter('.row-1').length === 3 || $(markers).filter('.row-2').length === 3 || $(markers).filter('.row-3').length === 3
-      );
-    }
-    function vertical(markers) {
-      return (
-        $(markers).filter('.col-1').length === 3 || $(markers).filter('.col-2').length === 3 || $(markers).filter('.col-3').length === 3
-      );
-    }
+  function horizontal(markers) {
+    return (
+      $(markers).filter('.row-1').length === 3 || $(markers).filter('.row-2').length === 3 || $(markers).filter('.row-3').length === 3
+    );
+  }
+  function vertical(markers) {
+    return (
+      $(markers).filter('.col-1').length === 3 || $(markers).filter('.col-2').length === 3 || $(markers).filter('.col-3').length === 3
+    );
+  }
 
-    function diagonal() {
-      if($(markers).filter('col-2').filter('.row-2').length === 0)
-        {
-          return false
-        }
-        else if($(markers).filter('.col-1').filter('.row-1').length === 1 && $(markers).filter('.col-3').filter('.row-1').length === 1)
-        {
-          return true
-        } else {
-          return false
-        }
+  function diagonal(markers) {
+    if($(markers).filter('col-2').filter('.row-2').length === 0)
+    {
+      return false;
+    }
+    else if($(markers).filter('.col-1').filter('.row-1').length === 1 && $(markers).filter('.col-3').filter('.row-1').length === 1)
+    {
+      return true;
+    } else {
+      return false;
+    }
+  }
