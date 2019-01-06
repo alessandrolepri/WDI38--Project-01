@@ -10,7 +10,7 @@ $().ready(function() {
       return;
     }
 // assign choice blue or red
-  const colour =    $('#turn').hasClass('red') ? 'red' : 'blue'
+  let colour = $("#turn").hasClass("red") ? "red" : "blue";
 
 // declaring objects
   little_table    =    $(this).closest('.little-grid');
