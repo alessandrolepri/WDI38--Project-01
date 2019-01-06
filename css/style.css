@@ -1,84 +1,72 @@
-h1 {
-  text-align: center;
+.grid.live,
+.big.live {
+    border: 2px solid green;
 }
 
-p.rules {
-  text-align: center;
-}
-
-div.btn-container {
-  text-align: center;
-}
-
-#Choice {
-  position:fixed;
-  top: 180px;
-  border: 1px solid  black;
-  background-color: yellow;
-  text-align: center;
-}
-
-.little-grid td {
+.grid td {
     border: 1px black solid;
-    background-color: #F5F5F5;
+    cursor: pointer;
 }
 
-.big-grid {
+.big {
     border: 1px transparent solid;
     margin: 0 auto 20px;
     width: 600px;
     height: 600px;
 }
 
-.little-grid.play, .big-grid.play {
-  border: 1px yellow solid;
-}
-
-.little-grid {
-    border: 1px transpare solid;
+.grid {
+    border: 1px transparent solid;
     width: 100%;
     height: 100%;
 }
 
-#turn {
-  width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
-  font-size: 40px;
-}
-
-.blue {
-  background-color: blue;
+td.red {
+    background-color: ;
 }
 
 td.blue {
-  background-color: dodgerblue;
+    background-color: blue;
 }
 
-td.red {
-  background-color: purple;
+.grid td.filled {
+    cursor: cursor;
+}
+
+.blue {
+    background-color: blue;
 }
 
 .red {
-  background-color: red;
+    background-color: ;
+}
+
+div.marker {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+#turn {
+    width: 560px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
 }
 
 #newGame {
-width: 300px;
-margin: 0 auto;
-font-size: 40px;
-padding: 20px;
-text-align: center;
-background-color: orange;
-border: 1px solid black;
+    width: 400px;
+    margin: auto;
+    font-size: 40px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    display: none;
+    cursor: pointer;
 }
 
-div.score {
-  margin: auto;
-  height: 100%;
-  width: 100%;
-}
 
 
 
