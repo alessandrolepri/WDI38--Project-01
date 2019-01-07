@@ -3,7 +3,7 @@
 // h1.textContent = 'Hello World!'
 
 
-$().ready(function() {
+$(function() {
 
   $('.grid').find('td:not(.filled)').click(function() {
     if($(this).closest('.live').length === 0) {
@@ -37,7 +37,7 @@ $().ready(function() {
     let markers = littleTable.find('.marker').filter('.' + colour)
 
     // declaring who is the winner on small grid
-    if(vertical(markers) || horizontal(markers) || diagonal(markers)) {
+    if (vertical(markers) || horizontal(markers) || diagonal(markers)) {
       littleTable.addClass(colour)
       if(colour === 'red') {
         littleTable.find('td').css('backgroundColor', 'blue')
@@ -47,7 +47,7 @@ $().ready(function() {
     }
 
     // declaring same if for big-grid
-    markers = $('.little_table').filter('.' + colour)
+    markers = $('.grid').filter('.' + colour)
 
     function newGame() {
       $('#newGame').css('display', 'block').hide().fadeIn(900)
@@ -68,6 +68,22 @@ $().ready(function() {
   })
 })
 
+function horizontal(markers) {
+  return (
+    $(markers).filter('.row-1').length === 3 || $(markers).filter('.row-2').length === 3 || $(markers).filter('.row-3').length === 3
+  )
+}
+function vertical(markers) {
+  return (
+    $(markers).filter('.col-1').length === 3 || $(markers).filter('.col-2').length === 3 || $(markers).filter('.col-3').length === 3
+  )
+}
+
+function diagonal(markers) {
+  if($(markers).filter('col-2').filter('.row-2').length === 0)
+    return false
+}
+
 function winner() {
   const right = $('#turn').offset().top
   const top = $('.big').position().top
@@ -78,25 +94,9 @@ function winner() {
   $('#turn').css({
     position: 'absolute',
     left: left + 'px',
-    top: right + 'px'
+    top: top + 'px'
   })
 
-
-  function horizontal(markers) {
-    return (
-      $(markers).filter('.row-1').length === 3 || $(markers).filter('.row-2').length === 3 || $(markers).filter('.row-3').length === 3
-    )
-  }
-  function vertical(markers) {
-    return (
-      $(markers).filter('.col-1').length === 3 || $(markers).filter('.col-2').length === 3 || $(markers).filter('.col-3').length === 3
-    )
-  }
-
-  function diagonal(markers) {
-    if($(markers).filter('col-2').filter('.row-2').length === 0)
-      return false
-  }
   if($(markers).filter('.col-1').filter('.row-1').length === 1 && $(markers).filter('.col-3').filter('.row-1').length === 1) {
     return true
   } else {
