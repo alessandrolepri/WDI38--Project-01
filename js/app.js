@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const refresh = document.querySelector('button')
   // const turnDisplay = document.getElementById('whos-turn')
 
-  // const mainMatrix = [
-  //   NaN, NaN, NaN,
-  //   NaN, NaN, NaN,
-  //   NaN, NaN, NaN
-  // ]
+  const mainMatrix = [
+    NaN, NaN, NaN,
+    NaN, NaN, NaN,
+    NaN, NaN, NaN
+  ]
+  console.log(mainMatrix)
 
 
 
@@ -30,61 +31,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getMatrix(cells) {
     const sets = getSets(cells)
-    console.log('this is getMatrix', getMatrix)
+    // console.log('this is getMatrix', getMatrix)
     // console.log(sets)
     return sets.map(set => {
       return set.map(cell => {
         if(cell.textContent === 'X') return 1
         if(cell.textContent === 'O') return 0
-        return NaN
+        return
       })
     })
   }
 
   function checkForWin(cells) {
     const matrix = getMatrix(cells)
-    console.log(matrix)
+    // console.log(matrix)
     const totals = matrix.map(row => row.reduce((sum, cell) => sum + cell))
-    console.log(totals)
+    // console.log(totals)
     return totals.some(total => total === 0 || total === 3)
   }
 
   let boardInPlay
 
   function play(e) {
-    const cell = e.target
+    const cell = e.target  // declaring who is playing
+    // console.log(cell)
     if (cell.innerText === 'X' || cell.innerText === 'O') return
-    const board = e.target.parentNode
+    const board = e.target.parentNode  // declaring on which board I'm playing
     // console.log(board)
     const cells = board.children
     const smallDiv = Array.from(e.target.parentNode.children)
+    // console.log(smallDiv)
     const index = smallDiv.indexOf(e.target)
-    if (parseInt(board.id) === boardInPlay) {
+    console.log(index)
 
-      // turnDisplay.ClassName = player
-      // console.log(turnDisplay)
-      // e.target.innerHTML = player
-      // e.target.classList.add('clicked')
-    }
+
+    if (parseInt(board.id) === boardInPlay)
+
     // console.log(board.id)
-    if (boardInPlay && parseInt(board.id) !== boardInPlay) {
-      return
-    }
+
+      if (boardInPlay && parseInt(board.id) !== boardInPlay) {
+        // return
+        index.classList.add('nextMove')
+
+      }
+
 
     boardInPlay = index
 
     cell.textContent = player
 
     if(checkForWin(cells)){
-      board.classList.add('winner-X')
-      board.classList.add('winner-O')
+      board.classList.add('winner-X') && board.classList.add('winner-O')
       alert(`${player} win!!!`)
     }
-    // } else {
-    //   checkForWin(cells)
-    //   board.classList.add('winner-O')
-    //   alert(`${player} win!!!`)
-    // }
 
     // update the mainMatrix with 0 or 1 for this game
 
@@ -94,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   boards.forEach(board => {
     const cells = Array.from(board.children)
+    // console.log(cells)
     cells.forEach(cell => {
       cell.addEventListener('click', play)
     })

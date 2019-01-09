@@ -68,7 +68,7 @@ button:hover {
 }
 
 .board:active {
-  border: 3px solid yellow
+  background-color: yellow
 }
 
 #info {
@@ -92,12 +92,24 @@ h2 {
 }
 
 div.winner-X.board  {
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  background-color: red
 }
 
-div.winner-O.board  {
-  border: 2px solid green;
+.board.nextMove {
+  border: 2px solid yellow
 }
+
+/* div.nexMove.board {
+  background-color: purple
+} */
+
+/* div.winner-O.board  {
+  border: 2px solid green;
+} */
+
+
+
 
 
 
