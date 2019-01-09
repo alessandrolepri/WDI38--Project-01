@@ -5,20 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  function theWinner(square) {
-    return [
-      [ square[0], square[1], square[2] ],  // ROW
-      [ square[3], square[4], square[5] ],
-      [ square[6], square[7], square[8] ],
-
-      [ square[0], square[3], square[6] ],  // COLUMN
-      [ square[1], square[4], square[7] ],
-      [ square[2], square[5], square[8] ],
-
-      [ square[0], square[4], square[8] ],  // DIAGONAL
-      [ square[2], square[4], square[6] ]
-]
-  }
+  // function theWinner(square) {
+  //   return [
+  //     [ square[0], square[1], square[2] ],  // ROW
+  //     [ square[3], square[4], square[5] ],
+  //     [ square[6], square[7], square[8] ],
+  //
+  //     [ square[0], square[3], square[6] ],  // COLUMN
+  //     [ square[1], square[4], square[7] ],
+  //     [ square[2], square[5], square[8] ],
+  //
+  //     [ square[0], square[4], square[8] ],  // DIAGONAL
+  //     [ square[2], square[4], square[6] ]
+  //   ]
+  // }
 
 
   //  create an Array for single square and store all winning solution by row/column/diagnola into another Array
@@ -52,6 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  // function getWinner(board) {
+  //
+  // }
+
 
   // Check if any player has 3*X or 3*O in a row/column/diagonal ----> win condition
 
@@ -64,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  let boardInPlay = -1 // let the player the random choice at the beginnig of the game (-1 is out of the board)
-  const takenBoards = [] // empty array to push all board taken after player won
+  let boardInPlay = -1 // let the player the random choice when the game starts (-1 is out of the board)
+  let currentBoard = -1
+  const takenBoardsX = [] // empty array to push all board taken after player X won
+  const takenBoardsO = [] // empty array to push all board taken after player O won
 
   function play(e) {
     const cell = e.target  // declaring who is playing
@@ -79,13 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const index = smallDiv.indexOf(e.target)
     // console.log(index)
 
-
+    console.log(e.target.parentNode)
     // console.log('board.id ----->',board.id)
     // console.log('boardInPlay ----->', boardInPlay)
     // console.log('index ----->', index)
 
     if (parseInt(board.id) === boardInPlay || boardInPlay === -1) {
-      console.log('playing')
+      // console.log('playing')
 
 
       // does the board have a winner? if so, return
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       // Assigning to boardInPlay on index Number
-
+      currentBoard = parseInt(board.id)
       boardInPlay = index
 
       cell.textContent = player
@@ -105,20 +111,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if(checkForWin(cells)){
         board.classList.add(`winner-${player}`)
         alert(`${player} win!!!`)
-
-
-        // push into empty array the board already taken and won by X or O
-
-        takenBoards.push(boardInPlay)
-
-      }
-
-      // teling to check if the board has already the index ---> player to choose where to play on
-
-      if (takenBoards.includes(index)){
         boardInPlay = -1
 
-        //  if player X or O collecting 3 spot in a row the game is finished
+        // push into empty array the board already taken and won by X or O
+        if(player === 'X') takenBoardsX.push(currentBoard)
+        else takenBoardsO.push(currentBoard)
+
+      }
+      console.log(takenBoardsX, takenBoardsO)
+      // teling to check if the board has already the index ---> player to choose where to play on
+
+      if (takenBoardsX.includes(boardInPlay) || takenBoardsO.includes(boardInPlay)){
+        boardInPlay = -1
+
+        //  if player X or O collecting 3 board in a row the game is finished
+
+        // [123] [456] [789] [147] [258] [369] [159] [357] ----> player won the game ---> no move allowed
+
+
 
       }
       // Switching player
