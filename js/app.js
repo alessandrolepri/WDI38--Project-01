@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const boards = Array.from(document.querySelectorAll('.board'))
   let player = 'X'
   const refresh = document.querySelector('button')
-  const turnDisplay = document.getElementById('whos-turn')
+  // const turnDisplay = document.getElementById('whos-turn')
 
   // const mainMatrix = [
   //   NaN, NaN, NaN,
@@ -27,8 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   }
 
+
   function getMatrix(cells) {
     const sets = getSets(cells)
+    console.log('this is getMatrix', getMatrix)
+    // console.log(sets)
     return sets.map(set => {
       return set.map(cell => {
         if(cell.textContent === 'X') return 1
@@ -40,8 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkForWin(cells) {
     const matrix = getMatrix(cells)
+    console.log(matrix)
     const totals = matrix.map(row => row.reduce((sum, cell) => sum + cell))
-
+    console.log(totals)
     return totals.some(total => total === 0 || total === 3)
   }
 
@@ -57,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const index = smallDiv.indexOf(e.target)
     if (parseInt(board.id) === boardInPlay) {
 
-      turnDisplay.ClassName = player
-      console.log(turnDisplay)
-      e.target.innerHTML = player
+      // turnDisplay.ClassName = player
+      // console.log(turnDisplay)
+      // e.target.innerHTML = player
       // e.target.classList.add('clicked')
     }
     // console.log(board.id)
@@ -71,9 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cell.textContent = player
 
-    if(checkForWin(cells)) {
+    if(checkForWin(cells)){
+      board.classList.add('winner-X')
+      board.classList.add('winner-O')
       alert(`${player} win!!!`)
     }
+    // } else {
+    //   checkForWin(cells)
+    //   board.classList.add('winner-O')
+    //   alert(`${player} win!!!`)
+    // }
 
     // update the mainMatrix with 0 or 1 for this game
 

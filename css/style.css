@@ -91,6 +91,14 @@ h2 {
 
 }
 
+div.winner-X.board  {
+  border: 2px solid red;
+}
+
+div.winner-O.board  {
+  border: 2px solid green;
+}
+
 
 
 
