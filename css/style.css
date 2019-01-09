@@ -16,12 +16,9 @@ h1 {
 .game {
   display: flex;
   flex-wrap: wrap;
-
   width: 600px;
   height: 600px;
-
   margin: auto;
-
   background-color: dodgerblue
 }
 
@@ -29,10 +26,8 @@ h1 {
 
   width: calc(100% / 3);
   height: calc(100% / 3);
-
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
   align-items: center;
   border-radius: 20px;
@@ -80,33 +75,14 @@ h2 {
   font-size: 15px
 }
 
-#whos-turn.x span.x {
-  font-size: 15px;
-  display: block
-}
-
-#whos-turn.x span.o {
-  font-size: 15px;
-  display: block
-
-}
 
 div.winner-X.board  {
-  /* border: 2px solid red; */
   background-color: red
 }
 
-.board.nextMove {
-  border: 2px solid yellow
-}
-
-/* div.nexMove.board {
+div.winner-O.board  {
   background-color: purple
-} */
-
-/* div.winner-O.board  {
-  border: 2px solid green;
-} */
+}
 
 
 

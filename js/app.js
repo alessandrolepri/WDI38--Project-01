@@ -2,14 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const boards = Array.from(document.querySelectorAll('.board'))
   let player = 'X'
   const refresh = document.querySelector('button')
-  // const turnDisplay = document.getElementById('whos-turn')
 
-  const mainMatrix = [
-    NaN, NaN, NaN,
-    NaN, NaN, NaN,
-    NaN, NaN, NaN
-  ]
-  console.log(mainMatrix)
+
 
 
 
@@ -50,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return totals.some(total => total === 0 || total === 3)
   }
 
-  let boardInPlay
+  let boardInPlay = -1
+  const takenBoards = []
 
   function play(e) {
     const cell = e.target  // declaring who is playing
@@ -62,34 +57,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const smallDiv = Array.from(e.target.parentNode.children)
     // console.log(smallDiv)
     const index = smallDiv.indexOf(e.target)
-    console.log(index)
+    // console.log(index)
 
 
-    if (parseInt(board.id) === boardInPlay)
+    console.log('board.id ----->',board.id)
+    console.log('boardInPlay ----->', boardInPlay)
+    console.log('index ----->', index)
 
-    // console.log(board.id)
+    if (parseInt(board.id) === boardInPlay || boardInPlay === -1) {
+      console.log('playing')
 
-      if (boardInPlay && parseInt(board.id) !== boardInPlay) {
-        // return
-        index.classList.add('nextMove')
+      // if (boardInPlay && parseInt(board.id) !== boardInPlay) {
+      //   return
+      //
+      // }
+
+      // does the board have a winner? if so, return
+      if (board.classList.contains('winner-X')) {
+        boardInPlay = -1
+        return
+      }
+
+      boardInPlay = index
+
+      cell.textContent = player
+
+      if(checkForWin(cells)){
+        board.classList.add(`winner-${player}`)
+        alert(`${player} win the game!!!`)
+
+        takenBoards.push(boardInPlay)
 
       }
 
+      if (takenBoards.includes(index)){
+        boardInPlay = -1
+      }
+      // if (boardInPlay.classList.contains('winner-X')){
+      //   boardInPlay = -1
+      //   console.log('that board is already taken, play anywhere')
+      // }
+      // update the mainMatrix with 0 or 1 for this game
 
-    boardInPlay = index
-
-    cell.textContent = player
-
-    if(checkForWin(cells)){
-      board.classList.add('winner-X') && board.classList.add('winner-O')
-      alert(`${player} win!!!`)
+      player = player === 'X' ? 'O' : 'X'
     }
 
-    // update the mainMatrix with 0 or 1 for this game
-
-    player = player === 'X' ? 'O' : 'X'
-
-  }
+  } // end of play(e)
 
   boards.forEach(board => {
     const cells = Array.from(board.children)
