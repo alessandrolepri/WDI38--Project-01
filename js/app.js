@@ -1,105 +1,96 @@
-// document.addEventListener('DOMContentLoaded', () => {
-// const h1 = document.querySelector('h1')
-// h1.textContent = 'Hello World!'
+document.addEventListener('DOMContentLoaded', () => {
+  const boards = Array.from(document.querySelectorAll('.board'))
+  let player = 'X'
+  const refresh = document.querySelector('button')
+  const turnDisplay = document.getElementById('whos-turn')
+
+  // const mainMatrix = [
+  //   NaN, NaN, NaN,
+  //   NaN, NaN, NaN,
+  //   NaN, NaN, NaN
+  // ]
 
 
-$(function() {
 
-  $('.grid').find('td:not(.filled)').click(function() {
-    if($(this).closest('.live').length === 0) {
+  function getSets(cells) {
+    return [
+      [ cells[0], cells[1], cells[2] ],
+      [ cells[3], cells[4], cells[5] ],
+      [ cells[6], cells[7], cells[8] ],
+
+      [ cells[0], cells[3], cells[6] ],
+      [ cells[1], cells[4], cells[7] ],
+      [ cells[2], cells[5], cells[8] ],
+
+      [ cells[0], cells[4], cells[8] ],
+      [ cells[2], cells[4], cells[6] ]
+    ]
+  }
+
+  function getMatrix(cells) {
+    const sets = getSets(cells)
+    return sets.map(set => {
+      return set.map(cell => {
+        if(cell.textContent === 'X') return 1
+        if(cell.textContent === 'O') return 0
+        return NaN
+      })
+    })
+  }
+
+  function checkForWin(cells) {
+    const matrix = getMatrix(cells)
+    const totals = matrix.map(row => row.reduce((sum, cell) => sum + cell))
+
+    return totals.some(total => total === 0 || total === 3)
+  }
+
+  let boardInPlay
+
+  function play(e) {
+    const cell = e.target
+    if (cell.innerText === 'X' || cell.innerText === 'O') return
+    const board = e.target.parentNode
+    // console.log(board)
+    const cells = board.children
+    const smallDiv = Array.from(e.target.parentNode.children)
+    const index = smallDiv.indexOf(e.target)
+    if (parseInt(board.id) === boardInPlay) {
+
+      turnDisplay.ClassName = player
+      console.log(turnDisplay)
+      e.target.innerHTML = player
+      // e.target.classList.add('clicked')
+    }
+    // console.log(board.id)
+    if (boardInPlay && parseInt(board.id) !== boardInPlay) {
       return
     }
-    // assign choice blue or red
-    const colour = $('#turn').hasClass('red') ? 'red' : 'blue'
 
-    // declaring objects
-    const littleTable  =    $(this).closest('.little-grid')
-    const littleCol    =    $(this).attr('class')
-    const littleRow    =    $(this).closest('tr').attr('class')
+    boardInPlay = index
 
-    // giving value of single play
-    const littlePos = '.col-' + littleCol + '.row-' + littleRow
+    cell.textContent = player
 
-    // decide player-next move on small grid
-    $('.live').removeClass('live')
-    if($('.grid' + littlePos + ' td').not('.filled').length === 0) {
-      $('.big').addClass('live')
-    } else {
-      $('.grid' + littlePos).addClass('live')
+    if(checkForWin(cells)) {
+      alert(`${player} win!!!`)
     }
 
-    // prevent to play again in the same grid
-    const div = $('<div>').addClass('marker').addClass(colour).addClass('col-' + littleCol).addClass('row-' + littleRow)
-    $(this).html(div)
-    $(this).addClass('filled')
-    $(this).unbind('click')
+    // update the mainMatrix with 0 or 1 for this game
 
-    let markers = littleTable.find('.marker').filter('.' + colour)
+    player = player === 'X' ? 'O' : 'X'
 
-    // declaring who is the winner on small grid
-    if (vertical(markers) || horizontal(markers) || diagonal(markers)) {
-      littleTable.addClass(colour)
-      if(colour === 'red') {
-        littleTable.find('td').css('backgroundColor', 'blue')
-      } else {
-        littleTable.find('td').css('backgroundColor', 'red')
-      }
-    }
-
-    // declaring same if for big-grid
-    markers = $('.grid').filter('.' + colour)
-
-    function newGame() {
-      $('#newGame').css('display', 'block').hide().fadeIn(900)
-    }
-
-    if(vertical(markers) || horizontal(markers) || diagonal(markers)) {
-      winner()
-    } else {
-      if($('td').not('.filled').length === 0) {
-        $('#turn').fadeOut(900, function() {
-          newGame()
-        })
-      } else {
-        $('#turn').removeClass(colour).addClass(colour === 'red' ? 'blue' : 'red')
-        $('#turn').html((colour === 'red' ? 'blue' : 'red') + '&rsquo;s turn&hellip;')
-      }
-    }
-  })
-})
-
-function horizontal(markers) {
-  return (
-    $(markers).filter('.row-1').length === 3 || $(markers).filter('.row-2').length === 3 || $(markers).filter('.row-3').length === 3
-  )
-}
-function vertical(markers) {
-  return (
-    $(markers).filter('.col-1').length === 3 || $(markers).filter('.col-2').length === 3 || $(markers).filter('.col-3').length === 3
-  )
-}
-
-function diagonal(markers) {
-  if($(markers).filter('col-2').filter('.row-2').length === 0)
-    return false
-}
-
-function winner() {
-  const right = $('#turn').offset().top
-  const top = $('.big').position().top
-  const left = $('.big').offset().left
-
-  $('#turn').text('You Won!!!')
-
-  $('#turn').css({
-    position: 'absolute',
-    left: left + 'px',
-    top: top + 'px'
-  })
-
-  if($(markers).filter('.col-1').filter('.row-1').length === 1 && $(markers).filter('.col-3').filter('.row-1').length === 1) {
-    return true
-  } else {
-    return false
   }
-}
+
+  boards.forEach(board => {
+    const cells = Array.from(board.children)
+    cells.forEach(cell => {
+      cell.addEventListener('click', play)
+    })
+  })
+
+
+  function refreshPage() {
+    window.location.reload()
+  }
+  refresh.addEventListener('click', refreshPage)
+})

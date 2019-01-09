@@ -1,212 +1,128 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>Project 1</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-  </script>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body>
 
-  <script src="js/app.js" charset="utf-8"></script>
-</head>
-<body>
+    <h1>Ultimate Tic-Tac-Toe</h1>
 
-  <!-- CREATING THE BIG GRID FOR FINAL GAME -->
-  <table class="big live">
+    <div class="game">
+      <div class="board" id="0">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="4">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board"id="5">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="6">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="7">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="board" id="8">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
-    <!-- ASSIGN ALL CLASSES FOR SINGLE GRID OUT 9 TOP, MID, BOTTOM -->
-    <!-- SETTING UP TOP LINE OF 3*9 GRID -->
-    <tr class="top">
-      <td class="1">
-        <table class="grid col-1 row-1">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-      <td class="2">
-        <table class="grid col-2 row-1">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-      <td class="3">
-        <table class="grid col-3 row-1">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    <aside id="info">
+      <h2>Who's Turn</h2>
+      <div id="whos-turn" class="x">
+        <span class="x">Player 1</span>
+        <span class="o">Player 2</span>
+      </div>
 
-    <!-- SETTING UP MIDDLE LINE OF 3*9 GRID -->
-    <tr class="middle">
-      <td class="1">
-        <table class="grid col-1 row-2">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="3"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-      <td class="2">
-        <table class="grid col-2 row-2">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-      <td class="3">
-        <table class="grid col-3 row-2">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    </aside>
 
-    <!-- SETTING UP BOTTOM LINE OF 3*9 GRID -->
-    <tr class="bottom">
-      <td class="1">
-        <table class="grid col-1 row-3">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-      <td class="2">
-        <table class="grid col-2 row-3">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-      <td class="3">
-        <table class="grid col-3 row-3">
-          <tr class="1">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="2">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-          <tr class="3">
-            <td class="1"></td>
-            <td class="2"></td>
-            <td class="3"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-
-  <div id="turn" class="blue">
-     Blue&rsquo;s turn&hellip;
-  </div>
-
-  <!-- ADDING NEW GAME BUTTON -->
- <button id="newGame" onClick="location.reload();">New game</button>
-
-
-</body>
-
+    <footer>
+    <button type="button" name="button">Play Again</button>
+    </<footer>
+  </body>
 </html>
