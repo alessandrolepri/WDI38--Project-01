@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         boardInPlay = -1
 
         //  if player X or O collecting 3 board in a row the game is finished
-
         // [123] [456] [789] [147] [258] [369] [159] [357] ----> player won the game ---> no move allowed
 
 

@@ -77,7 +77,7 @@ h2 {
 
 
 div.winner-X.board  {
-  background-color: red
+  background-color: red;
 }
 
 div.winner-O.board  {
