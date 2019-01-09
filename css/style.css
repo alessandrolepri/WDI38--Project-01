@@ -19,7 +19,7 @@ h1 {
   width: 600px;
   height: 600px;
   margin: auto;
-  background-color: dodgerblue
+  background-color: lightgreen
 }
 
 .game .board, .game .board div {
@@ -81,7 +81,7 @@ div.winner-X.board  {
 }
 
 div.winner-O.board  {
-  background-color: purple
+  background-color: blue
 }
 
 
