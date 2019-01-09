@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const boards = Array.from(document.querySelectorAll('.board'))
   let player = 'X'
   const refresh = document.querySelector('button')
+  let turn = document.querySelector('#whos-turn')
 
 
 
@@ -51,10 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
   }
-
-  // function getWinner(board) {
-  //
-  // }
 
 
   // Check if any player has 3*X or 3*O in a row/column/diagonal ----> win condition
@@ -116,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // push into empty array the board already taken and won by X or O
         if(player === 'X') takenBoardsX.push(currentBoard)
         else takenBoardsO.push(currentBoard)
-
+// check for theWinner
       }
       console.log(takenBoardsX, takenBoardsO)
       // teling to check if the board has already the index ---> player to choose where to play on
@@ -129,10 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
       }
       // Switching player
 
       player = player === 'X' ? 'O' : 'X'
+      turn.innerHTML = (player === 'O') ? 'O Turn' : 'X Turn'
     }
 
   } // end of play(e)

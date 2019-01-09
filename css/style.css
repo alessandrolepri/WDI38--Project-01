@@ -84,6 +84,12 @@ div.winner-O.board  {
   background-color: blue
 }
 
+h2 {
+  font-size: 40px;
+  text-decoration: underline;
+  font-family: fantasy
+}
+
 
 
 
