@@ -2,24 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const boards = Array.from(document.querySelectorAll('.board'))
   let player = 'X'
   const refresh = document.querySelector('button')
-  let turn = document.querySelector('#whos-turn')
+  const turn = document.querySelector('#whos-turn')
 
 
 
-  // function theWinner(square) {
-  //   return [
-  //     [ square[0], square[1], square[2] ],  // ROW
-  //     [ square[3], square[4], square[5] ],
-  //     [ square[6], square[7], square[8] ],
-  //
-  //     [ square[0], square[3], square[6] ],  // COLUMN
-  //     [ square[1], square[4], square[7] ],
-  //     [ square[2], square[5], square[8] ],
-  //
-  //     [ square[0], square[4], square[8] ],  // DIAGONAL
-  //     [ square[2], square[4], square[6] ]
-  //   ]
-  // }
+  function theWinner(square) {
+    return [
+      [ 0,1,2 ],  // ROW
+      [ 3,4,5 ],
+      [ 6,7,8 ],
+
+      [ 0,3,6 ],  // COLUMN
+      [ 1,4,7 ],
+      [ 2,5,8 ],
+
+      [ 0,4,8 ],  // DIAGONAL
+      [ 2,4,6 ]
+    ]
+  }
 
 
   //  create an Array for single square and store all winning solution by row/column/diagnola into another Array
@@ -53,6 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  function getBoard(square) {
+    const box = theWinner(square)
+    return box.map(set => {
+      return set.map(square => {
+        if(square.textContent === 'X') return 1
+        if(square.textContent === 'O') return 0
+        return
+      })
+    })
+  }
 
   // Check if any player has 3*X or 3*O in a row/column/diagonal ----> win condition
 
@@ -60,8 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const matrix = getMatrix(cells)
     // console.log(matrix)
     const totals = matrix.map(row => row.reduce((sum, cell) => sum + cell))
-    // console.log(totals)
+    console.log(totals)
     return totals.some(total => total === 0 || total === 3)  // some will check only if there is what we are looking for
+  }
+
+  function finalWin(sqaure) {
+    const result = getBoard(board)
+    const final = matrix.map(row.reduce((sum, square) => sum + square))
+    return final.some(final => final === 0 || total === 3)
   }
 
 

@@ -4,13 +4,21 @@
   font-size: 80px;
 }
 
+body {
+  animation-direction: reverse;
+}
 
 h1 {
   font-size: 30px;
   text-align: center;
   background-color: yellow;
   font-family: fantasy;
-  margin-top: 0
+  margin-top: 0;
+  color: #00cc00;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  box-shadow: 10px 10px 5px #00cc00;
+  font-style: oblique;
+
 }
 
 .game {
@@ -19,7 +27,7 @@ h1 {
   width: 600px;
   height: 600px;
   margin: auto;
-  background-color: lightgreen
+  background-color: #ffff99
 }
 
 .game .board, .game .board div {
@@ -88,6 +96,23 @@ h2 {
   font-size: 40px;
   text-decoration: underline;
   font-family: fantasy
+}
+
+span.o {
+  font-size: 30px
+}
+
+span.x {
+  font-size: 30px
+}
+
+div#whos-turn.x {
+  font-size: 40px;
+}
+
+div#whos-turn.o {
+  font-size: 40px;
+  color: blue
 }
 
 
