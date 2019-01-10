@@ -157,10 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (xBigWin){
-          alert('X has won!!!!!!!')
+          alert('Congratulations, X has won!!!!!!!\n click on PLAY AGAIN for a new challenge')
+          console.log('x has won', xBigWin)
         }
 
-        if ( takenBoardsX.includes(0) && takenBoardsX.includes(1) && takenBoardsX.includes(2) ||
+        if ( takenBoardsO.includes(0) && takenBoardsO.includes(1) && takenBoardsO.includes(2) ||
         takenBoardsO.includes(0) && takenBoardsO.includes(1) && takenBoardsO.includes(2) ||
         takenBoardsO.includes(3) && takenBoardsO.includes(4) && takenBoardsO.includes(5) ||
         takenBoardsO.includes(6) && takenBoardsO.includes(7) && takenBoardsO.includes(8) ||
@@ -173,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (oBigWin){
-          alert('O has won!!!!!!!')
+          alert('Congratulations, O has won!!!!!!!\n click on PLAY AGAIN for a new challenge')
+          console.log('o has won', oBigWin)
         }
 
       }
