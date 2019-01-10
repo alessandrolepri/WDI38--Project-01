@@ -87,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const takenBoardsO = [] // empty array to push all board taken after player O won
 
+  let xBigWin = false
+  let oBigWin = false
+
   function play(e) {
     const cell = e.target  // declaring who is playing
     // console.log(cell)
@@ -140,8 +143,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // check if takenBoardsO or takenBoardsX contain any of the winning combinations
 
-        
-        takenBoardsO.includes(0) && takenBoardsO.includes(1) && takenBoardsO.includes(2)
+
+        if ( takenBoardsX.includes(0) && takenBoardsX.includes(1) && takenBoardsX.includes(2) ||
+        takenBoardsX.includes(0) && takenBoardsX.includes(1) && takenBoardsX.includes(2) ||
+        takenBoardsX.includes(3) && takenBoardsX.includes(4) && takenBoardsX.includes(5) ||
+        takenBoardsX.includes(6) && takenBoardsX.includes(7) && takenBoardsX.includes(8) ||
+        takenBoardsX.includes(0) && takenBoardsX.includes(4) && takenBoardsX.includes(8) ||
+        takenBoardsX.includes(2) && takenBoardsX.includes(4) && takenBoardsX.includes(6)){
+          xBigWin = true
+        }
+
+        if (xBigWin){
+          alert('X has won!!!!!!!')
+        }
+
+        if ( takenBoardsX.includes(0) && takenBoardsX.includes(1) && takenBoardsX.includes(2) ||
+        takenBoardsO.includes(0) && takenBoardsO.includes(1) && takenBoardsO.includes(2) ||
+        takenBoardsO.includes(3) && takenBoardsO.includes(4) && takenBoardsO.includes(5) ||
+        takenBoardsO.includes(6) && takenBoardsO.includes(7) && takenBoardsO.includes(8) ||
+        takenBoardsO.includes(0) && takenBoardsO.includes(4) && takenBoardsO.includes(8) ||
+        takenBoardsO.includes(2) && takenBoardsO.includes(4) && takenBoardsO.includes(6)){
+          oBigWin = true
+        }
+
+        if (oBigWin){
+          alert('O has won!!!!!!!')
+        }
 
       }
       console.log(takenBoardsX, takenBoardsO)
