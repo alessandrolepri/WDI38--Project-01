@@ -30,7 +30,8 @@ h1 {
   height: 600px;
   margin: auto;
   background-color: #66b3ff;
-  float: left
+  float: left;
+  margin-left: 90px
 }
 
 .game .board, .game .board div {
@@ -56,7 +57,7 @@ h1 {
 }
 
 button {
-  margin-left: 23%;
+  margin-left: 20%;
   margin-top: 15px;
   font-size: 30px;
   background-color: #ffc2b3;

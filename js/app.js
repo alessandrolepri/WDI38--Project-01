@@ -136,12 +136,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if(player === 'X') takenBoardsX.push(currentBoard)
         else takenBoardsO.push(currentBoard)
         // check for theWinner
+
+
+        // check if takenBoardsO or takenBoardsX contain any of the winning combinations
+
+        
+        takenBoardsO.includes(0) && takenBoardsO.includes(1) && takenBoardsO.includes(2)
+
       }
       console.log(takenBoardsX, takenBoardsO)
 
       // check if takenBoard includes the boardInPlay ---> player to choose where to play on
 
       if (takenBoardsX.includes(boardInPlay) || takenBoardsO.includes(boardInPlay)){
+
 
         // player have a choice to decide where to play next move if board is already been taken
 
