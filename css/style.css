@@ -1,24 +1,23 @@
 * {
   box-sizing: border-box;
-  font-family: cursive;
+  font-family:sans-serif;
   font-size: 80px;
 }
 
 
 body {
-  background-image: url("https://i.pinimg.com/originals/4f/f9/66/4ff96679c89d5f58abe33279d26cd436.jpg")
-
+  background-image: url("https://www.desktopbackground.org/download/o/2010/06/26/38953_simplify-your-desktop-with-these-minimalist-wallpapers_1920x1080_h.png");
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
-  background-color: #ffcc00;
-  font-family: fantasy;
+  background-color: white;
+  font-family: monospace;
   margin-top: 0;
-  color: #00cc00;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-  box-shadow: 10px 10px 5px #00cc00;
+  color: black;
+  /* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
+  box-shadow: 10px 10px 5px black;
   font-style: oblique;
 
 }
@@ -29,9 +28,12 @@ h1 {
   width: 600px;
   height: 600px;
   margin: auto;
-  background-color: #66b3ff;
+  /* background-color: #66b3ff; */
   float: left;
-  margin-left: 90px
+  margin-left: 90px;
+  perspective: 1000px;
+  /* border-radius: 50% */
+  opacity: 1
 }
 
 .game .board, .game .board div {
@@ -42,7 +44,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 50%;
   border: 1px solid black;
   padding: 5px;
   cursor: pointer
@@ -63,11 +65,15 @@ button {
   background-color: #ffc2b3;
   border-radius: 30px;
   cursor: wait;
-  padding: 15px
+  padding: 15px;
+  border-radius: 50%;
+  opacity: 0.6
 }
 
 button:hover {
-  background-color: green
+  background-color: green;
+  width: 300px;
+  opacity: 1
 }
 
 .div {
@@ -77,6 +83,7 @@ button:hover {
 .board:active {
   background-color: #00b300
 }
+
 
 #info {
     text-align:center;
@@ -99,9 +106,8 @@ div.winner-O.board  {
 h2 {
   font-size: 40px;
   text-decoration: underline;
-  font-family: fantasy;
+  font-family: monospace;
   margin: 0;
-  color: red
 }
 
 span.o {
@@ -133,8 +139,13 @@ strong {
 }
 
 p {
-  font-size: 30px
+  font-size: 36px;
+  font-family: monospace;
+  font-weight:lighter;
 }
+
+
+
 
 
 

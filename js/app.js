@@ -7,33 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //  create an Array for single square and store all winning solution by row/column/diagnola into another Array
   //
-  // const lines = [
-  //   [0,1,2],
-  //   [3,4,5],
-  //   [6,7,8],
-  //   [2,5,8],
-  //   [0,3,6],
-  //   [1,4,7],
-  //   [6,4,2],
-  //   [0,4,8]
-  // ]
-  // const mainGrid = [
-  //   NaN, Nan, Nan,
-  //   NaN, Nan, Nan,
-  //   NaN, Nan, Nan,
-  //
-  // ]
-  //
-  // const grid = cells.map(cells => cells.innerHTML)
-  // if(checkWin(grid)) {
-  //   bigBoard[boardIndex] = 1
-  //   console.log(checkWin(cells))
-  // }
-  //
-  // bigBoard = cells.map(cells => cells.innerHTML)
-  // if(bigBoard(cells)){
-  //   bigBoard[boardIndex] = 0
-  // }
 
   function getSets(cells) {
     return [
@@ -142,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // check if takenBoardsO or takenBoardsX contain any of the winning combinations
-
+        // check if all number in the Array are matching any winning combination
 
         if ( takenBoardsX.includes(0) && takenBoardsX.includes(1) && takenBoardsX.includes(2) ||
         takenBoardsX.includes(0) && takenBoardsX.includes(1) && takenBoardsX.includes(2) ||
@@ -207,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // *************** GAME IS OVER ******************
 
 
-  // having event listener for every click (div) on play(e)
+  // add event listener for every click (div) on play(e)
 
   boards.forEach(board => {
     const cells = Array.from(board.children)
