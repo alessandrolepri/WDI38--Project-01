@@ -4,9 +4,11 @@
   font-size: 80px;
 }
 
-/* body {
-  background-image: url('https://st2.depositphotos.com/2066835/8826/v/950/depositphotos_88263406-stock-illustration-hand-drawn-tic-tac-toe.jpg')
-} */
+
+body {
+  background-image: url("https://i.pinimg.com/originals/4f/f9/66/4ff96679c89d5f58abe33279d26cd436.jpg")
+
+}
 
 h1 {
   font-size: 30px;
@@ -27,7 +29,8 @@ h1 {
   width: 600px;
   height: 600px;
   margin: auto;
-  background-color: grey
+  background-color: #66b3ff;
+  float: left
 }
 
 .game .board, .game .board div {
@@ -53,7 +56,7 @@ h1 {
 }
 
 button {
-  margin-left: 43%;
+  margin-left: 23%;
   margin-top: 15px;
   font-size: 30px;
   background-color: #ffc2b3;
@@ -102,12 +105,14 @@ h2 {
 
 span.o {
   font-size: 30px;
-  color: blue
+  background-color: blue;
+  font-size: 30px
 }
 
 span.x {
   font-size: 30px;
-  color: red
+  background-color: red;
+  font-size: 30px
 }
 
 div#whos-turn.x {
@@ -116,6 +121,18 @@ div#whos-turn.x {
 
 div#whos-turn.o {
   font-size: 40px;
+}
+
+img {
+  margin-top: 30px
+}
+
+strong {
+  font-size: 30px
+}
+
+p {
+  font-size: 30px
 }
 
 

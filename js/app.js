@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`${player} win!!!`)
         boardInPlay = -1
 
-        const lines = cells.map(cells => cells.innerHTML)
+        // const lines = cells.map(cells => cells.innerHTML
 
 
         // push into empty array the board already taken and won by X or O
