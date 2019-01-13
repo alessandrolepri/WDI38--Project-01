@@ -25,6 +25,28 @@ Choose one game between nine briefs given to us by our Instructor the weekend be
 1. Clone or download the repo
 2. Open the `index.html` in your browser of choice, leave your feedback and possibly improvement
 
+### Time Management - briefs has been given on 03/01(Thursday)
+
+* Thu - Fri - Sat - Sun (03/01 ---> 06/01)
+Read carefully all briefs and pick the game that fits you 
+
+* Mon (07/01)
+Having your MVP ready to work on and check any possible changing
+
+* Tue (08/01)
+Features
+
+* Wed (09/01)
+AM: Users testing
+PM: Bug fixing
+
+* Thu (10/01)
+Styling
+
+* Fri (11/01)
+AM: Write down your README.MD
+PM: Project presentation
+
 
 
 # My Game - Ultimate Tic-Tac-Toe
