@@ -16,6 +16,10 @@ Choose one game between nine briefs given to us by our Instructor the weekend be
 * CSS
 * GitHub
 
+## Management Tools
+
+* Trello
+
 ## Installation
 
 1. Clone or download the repo
