@@ -92,6 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         boardInPlay = -1
         return
       }
+
+      if (board.classList.contains('winner-O')) {   // result from checkForWin
+        boardInPlay = -1
+        return
+      }
       // Assigning to boardInPlay on index Number
 
       currentBoard = parseInt(board.id) // parsing ID from string to number
